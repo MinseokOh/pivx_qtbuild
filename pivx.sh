@@ -5,26 +5,26 @@ FILE_RELEASE=pivx-${VERSION}-x86_64-linux-gnu.tar.gz
 URL_RELEASE=https://github.com/PIVX-Project/PIVX/releases/download/v${VERSION}/${FILE_RELEASE}
 
 function pivx_install() {
-	echo '[INSTALL] Strat install PIVX wallet'
+	echo "$(tput setaf 1)[INSTALL] PIVX MN $(tput sgr0)"
 	pushd ~/
-    	    wget ${URL_RELEASE}
-        	tar -zxvf ${FILE_RELEASE}
-	        pushd ~/pivx-${VERSION}/bin/
-                ./pivxd
-    	    popd
+    	wget ${URL_RELEASE}
+        tar -zxvf ${FILE_RELEASE}
+	    pushd ~/pivx-${VERSION}/bin/
+            ./pivxd
+    	popd
 	popd
-	echo '[INSTALL] inished install!'
+	echo "$(tput setaf 1)[INSTALL] PIVX MN Complete! $(tput sgr0)"	
 }
 
 function pivx_run() {
-	echo '[RUN] Run PIVX wallet'
+	echo "$(tput setaf 1)[RUN] PIVX Wallet $(tput sgr0)"	
     pushd ~/pivx-${VERSION}/bin/
     	./pivxd
     popd
 }
 
 function pivx_stop() {
-	echo '[STOP] Stop PIVX wallet'
+	echo "$(tput setaf 1)[STOP] PIVX Wallet$(tput sgr0)"	
 	pkill pivxd
 }
 
