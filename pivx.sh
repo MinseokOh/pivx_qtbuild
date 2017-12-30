@@ -23,6 +23,21 @@ function pivx_run() {
     popd
 }
 
+function pivx_stop() {
+	echo '[STOP] Stop PIVX wallet'
+	pkill pivxd
+}
+
+function pivx_update() {
+	pivx_run
+	git pull
+	pivx_install
+	pivx_stop
+}
+
+function pivx_conf() {
+	echo "~/.pivx/pivx.conf"
+}
 
 COMMAND=$1
 
@@ -32,4 +47,12 @@ fi
 
 if [ "${COMMAND}" = "run" ]; then 
 	pivx_run
+fi
+
+if [ "${COMMAND}" = "stop" ]; then 
+	pivx_stop
+fi
+
+if [ "${COMMAND}" = "update" ]; then 
+	pivx_update
 fi
