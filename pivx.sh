@@ -36,7 +36,7 @@ function pivx_update() {
 }
 
 function pivx_conf() {
-	echo "~/.pivx/pivx.conf"
+	echo "$HOME/.pivx/pivx.conf"
 }
 
 COMMAND=$1
